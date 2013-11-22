@@ -447,6 +447,7 @@ MonoBehaviour:
   speed: 0
   rotationFactor: 5
   gravity: 20
+  bombPrefab: {fileID: 11400000, guid: 8e7abcfba2355204a8eb246928bb31b8, type: 2}
 --- !u!82 &614242966
 AudioSource:
   m_ObjectHideFlags: 0

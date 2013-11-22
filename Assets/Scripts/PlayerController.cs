@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 0f;
 	public float rotationFactor = 5.0F;
     public float gravity = 20.0F;
+
+	public BombController bombPrefab;
 	
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 rotation = Vector3.zero;
@@ -45,6 +47,16 @@ public class PlayerController : MonoBehaviour {
 		rotation = new Vector3(0, Input.GetAxis("Mouse X"), 0);
 		rotation *= rotationFactor * Time.timeScale;
 		transform.Rotate(rotation);
+
+		if (Input.GetButtonDown("Fire1"))
+		{
+			if (tnt > 0)
+			{
+				BombController bomb = Instantiate(bombPrefab, transform.position + transform.forward, Quaternion.identity) as BombController;
+				bomb.rigidbody.AddForce(transform.forward*18f + transform.up*15f, ForceMode.Impulse);
+				tnt--;
+			}
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
