@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BombController : MonoBehaviour {
 
+	public Transform boxExplosionPrefab;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,6 +19,7 @@ public class BombController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "box")
 		{
+			Instantiate(boxExplosionPrefab, other.gameObject.transform.position, Quaternion.identity);
 			Destroy (other.gameObject);
 		}
 
