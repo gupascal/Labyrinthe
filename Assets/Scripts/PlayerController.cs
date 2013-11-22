@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 rotation = Vector3.zero;
 	
 	private CharacterController controller;
+
+	private int tnt = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -60,6 +62,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "item")
 		{
+			tnt++;
 			Destroy(other.gameObject);
 		}
 		else if (other.gameObject.tag == "box")
@@ -84,5 +87,10 @@ public class PlayerController : MonoBehaviour {
 			boxC.move(move);
 			speed = 0;
 		}
+	}
+
+	public int getNbTNT()
+	{
+		return tnt;
 	}
 }
