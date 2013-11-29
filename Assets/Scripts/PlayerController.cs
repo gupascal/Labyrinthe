@@ -79,9 +79,14 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if (other.gameObject.tag == "box")
 		{
-			Vector3 move = other.gameObject.transform.position - transform.position;
+			Vector3 move = (other.gameObject.transform.position - transform.position).normalized;
 			float dotForward = Vector3.Dot (Vector3.forward, move);
 			float dotRight = Vector3.Dot (Vector3.right, move);
+
+			// Disable ambiguous movements (diagonals where we can't determine the direction, avoid small bugs)
+			if (Mathf.Abs(Mathf.Abs(dotForward) - Mathf.Abs(dotRight)) < 0.1)
+				return;
+
 			if (Mathf.Abs(dotForward) > Mathf.Abs(dotRight)) {
 				if (dotForward > 0)
 					move = Vector3.forward;
