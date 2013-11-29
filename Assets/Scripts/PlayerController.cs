@@ -96,8 +96,9 @@ public class PlayerController : MonoBehaviour {
 			}
 			
 			BoxController boxC = other.GetComponent<BoxController>();
-			boxC.move(move);
-			speed = 0;
+			if (boxC.move(move)) {
+				speed = 0;
+			}
 		}
 	}
 

@@ -21,7 +21,7 @@ public class BoxController : MonoBehaviour {
 		}
 	}
 
-	public void move(Vector3 move)
+	public bool move(Vector3 move)
 	{
 		if (movable) {
 			BoxController[] boxes = FindObjectsOfType(System.Type.GetType("BoxController")) as BoxController[];
@@ -30,11 +30,13 @@ public class BoxController : MonoBehaviour {
 				Vector3 vect = boxes[i].transform.position - transform.position;
 				if (boxes[i] == this) continue;
 				if (Vector3.Angle(vect, move) < 0.001 && vect.magnitude-1 < move.magnitude) {
-					return;
+					return false;
 				}
 			}
 			position = transform.position + move;
 			movable = false;
+			return true;
 		}
+		return false;
 	}
 }
