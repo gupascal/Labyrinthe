@@ -215,7 +215,7 @@ MonoBehaviour:
   speed: 0
   rotationFactor: 5
   gravity: 20
-  bombPrefab: {fileID: 11400000, guid: 8e7abcfba2355204a8eb246928bb31b8, type: 2}
+  bombPrefab: {fileID: 11400000, guid: f0cbc46911797e64ab57f425cab35817, type: 2}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
