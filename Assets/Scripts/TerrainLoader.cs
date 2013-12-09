@@ -4,7 +4,10 @@ using System.Collections;
 public class TerrainLoader : MonoBehaviour {
 
 	public GameObject boxPrefab;
+	public GameObject itemPrefab;
 	public GameObject wallPrefab;
+
+	public PlayerController player;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,15 @@ public class TerrainLoader : MonoBehaviour {
 				else if (elems[j] == "W")
 				{
 					Instantiate(wallPrefab, new Vector3(i + 0.5f, 0.5f, j + 0.5f), Quaternion.identity);
+				}
+				else if (elems[j] == "I")
+				{
+					GameObject item = Instantiate(itemPrefab, new Vector3(i + 0.5f, 0.25f, j + 0.5f), Quaternion.identity) as GameObject;
+					item.transform.Rotate(new Vector3(90, 0, 0));
+				}
+				else if (elems[j] == "P")
+				{
+					player.transform.position = new Vector3(i + 0.5f, player.transform.position.y, j + 0.5f);
 				}
 			}
 
