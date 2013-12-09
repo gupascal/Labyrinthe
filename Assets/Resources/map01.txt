@@ -17,7 +17,7 @@ W;W;W;W;W;W;x;x;x;x;x;x;x;x;x;W;W;W;x;x;B;x;W;B;B;B;W
 W;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;W;x;x;B;x;B;x;x;B;x;W
 W;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;x;x;B;x;x;B;x;x;x;W
 W;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;x;W;W;W;B;x;x;x;x;W
-W;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;x;x;W;x;x;B;x;x;x;W
+W;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;x;x;W;x;x;x;B;x;x;W
 W;x;x;x;x;x;x;x;W;W;W;W;W;W;W;W;x;x;x;W;x;W;W;W;W;W;W
 W;x;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;x;W;x;W;x;x;x;x;W
 W;x;x;x;x;x;x;x;x;x;x;x;W;x;x;x;x;x;B;W;x;W;x;x;x;x;W
