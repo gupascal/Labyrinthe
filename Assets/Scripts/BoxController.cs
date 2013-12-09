@@ -33,6 +33,16 @@ public class BoxController : MonoBehaviour {
 					return false;
 				}
 			}
+
+			GameObject[] walls = GameObject.FindGameObjectsWithTag("wall");;
+			for (int i = 0; i < walls.Length; i++)
+			{
+				Vector3 vect = walls[i].transform.position - transform.position;
+				if (Vector3.Angle(vect, move) < 0.001 && vect.magnitude-1 < move.magnitude) {
+					return false;
+				}
+			}
+
 			position = transform.position + move;
 			movable = false;
 			return true;
