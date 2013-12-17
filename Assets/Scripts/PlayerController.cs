@@ -80,29 +80,32 @@ public class PlayerController : MonoBehaviour {
 		else if (other.gameObject.tag == "box")
 		{
 			Vector3 move = (other.gameObject.transform.position - transform.position).normalized;
-			float dotForward = Vector3.Dot (Vector3.forward, move);
-			float dotRight = Vector3.Dot (Vector3.right, move);
+			if (moveDirection != Vector3.zero && Vector3.Angle (moveDirection, move) < 25)
+			{
+				float dotForward = Vector3.Dot (Vector3.forward, move);
+				float dotRight = Vector3.Dot (Vector3.right, move);
 
-			// Disable ambiguous movements (diagonals where we can't determine the direction, avoid small bugs)
-			if (Mathf.Abs(Mathf.Abs(dotForward) - Mathf.Abs(dotRight)) < 0.1)
-				return;
+				// Disable ambiguous movements (diagonals where we can't determine the direction, avoid small bugs)
+				if (Mathf.Abs(Mathf.Abs(dotForward) - Mathf.Abs(dotRight)) < 0.1)
+					return;
 
-			if (Mathf.Abs(dotForward) > Mathf.Abs(dotRight)) {
-				if (dotForward > 0)
-					move = Vector3.forward;
-				else
-					move = Vector3.back;
-			}
-			else {
-				if (dotRight > 0) 
-					move = Vector3.right;
-				else
-					move = Vector3.left;
-			}
-			
-			BoxController boxC = other.GetComponent<BoxController>();
-			if (boxC.move(move)) {
-				speed = 0;
+				if (Mathf.Abs(dotForward) > Mathf.Abs(dotRight)) {
+					if (dotForward > 0)
+						move = Vector3.forward;
+					else
+						move = Vector3.back;
+				}
+				else {
+					if (dotRight > 0) 
+						move = Vector3.right;
+					else
+						move = Vector3.left;
+				}
+				
+				BoxController boxC = other.GetComponent<BoxController>();
+				if (boxC.move(move)) {
+					speed = 0;
+				}
 			}
 		}
 	}
