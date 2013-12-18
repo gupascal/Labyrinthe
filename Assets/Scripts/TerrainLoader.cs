@@ -29,6 +29,7 @@ public class TerrainLoader : MonoBehaviour {
 			string[] elems = lines[i].Split (';');
 			for (int j = 0; j < elems.Length; j++)
 			{
+				elems[j] = elems[j].Trim();
 				Debug.Log (elems[j]);
 				if (elems[j] == "B")
 				{
