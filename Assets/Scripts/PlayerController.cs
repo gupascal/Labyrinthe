@@ -108,6 +108,10 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+		else if (other.gameObject.tag == "sceptre")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 
 	public int getNbTNT()

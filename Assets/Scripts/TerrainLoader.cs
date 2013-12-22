@@ -5,6 +5,7 @@ public class TerrainLoader : MonoBehaviour {
 
 	public GameObject boxPrefab;
 	public GameObject itemPrefab;
+	public GameObject sceptrePrefab;
 	public GameObject wallPrefab;
 
 	public PlayerController player;
@@ -42,6 +43,10 @@ public class TerrainLoader : MonoBehaviour {
 				else if (elems[j] == "I")
 				{
 					GameObject item = Instantiate(itemPrefab, new Vector3(i + 0.5f, 0.25f, j + 0.5f), Quaternion.identity) as GameObject;
+				}
+				else if (elems[j] == "S")
+				{
+					GameObject sceptre = Instantiate(sceptrePrefab, new Vector3(i + 0.5f, 0.5f, j + 0.5f), Quaternion.identity) as GameObject;
 				}
 				else if (elems[j] == "P")
 				{
