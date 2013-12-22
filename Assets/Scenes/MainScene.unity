@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 100002, guid: 409150b0a8a0d474981833f8a10fde59, type: 2}
-  itemPrefab: {fileID: 100000, guid: ebf132a0b4b8b1e48b164aa7d896d622, type: 2}
+  itemPrefab: {fileID: 100004, guid: 10a3d30675c9a7e4aa0cdecd17fdc007, type: 2}
   wallPrefab: {fileID: 100000, guid: e82865ea682fbe34c98941f9fbdcb30b, type: 2}
   player: {fileID: 614242965}
 --- !u!1 &470521923

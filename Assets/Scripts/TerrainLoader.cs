@@ -42,7 +42,6 @@ public class TerrainLoader : MonoBehaviour {
 				else if (elems[j] == "I")
 				{
 					GameObject item = Instantiate(itemPrefab, new Vector3(i + 0.5f, 0.25f, j + 0.5f), Quaternion.identity) as GameObject;
-					item.transform.Rotate(new Vector3(90, 0, 0));
 				}
 				else if (elems[j] == "P")
 				{
