@@ -21,7 +21,7 @@ public class TerrainLoader : MonoBehaviour {
 	}
 
 	void load() {
-		string content = Resources.Load<TextAsset>("map01").text;
+		string content = Resources.Load<TextAsset>("map00").text;
 		Debug.Log (content);
 		string[] lines = content.Split ('\n');
 		for (int i = 0; i < lines.Length; i++)
