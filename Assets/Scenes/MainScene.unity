@@ -258,6 +258,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 470521924}
   - 114: {fileID: 470521925}
+  - 114: {fileID: 470521926}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -291,6 +292,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 1102011898}
   tntText: {fileID: 1789849911}
+--- !u!114 &470521926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470521923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 815b46f8679d666478a194780cf2779c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inMenu: 1
 --- !u!1 &614242960
 GameObject:
   m_ObjectHideFlags: 0
