@@ -10,8 +10,11 @@ public class TerrainLoader : MonoBehaviour {
 
 	public PlayerController player;
 
+	private Config config;
+
 	// Use this for initialization
 	void Start () {
+		config = FindObjectOfType(System.Type.GetType("Config")) as Config;
 		load();
 	}
 	
@@ -21,7 +24,7 @@ public class TerrainLoader : MonoBehaviour {
 	}
 
 	void load() {
-		string content = Resources.Load<TextAsset>("map00").text;
+		string content = Resources.Load<TextAsset>(config.level).text;
 		Debug.Log (content);
 		string[] lines = content.Split ('\n');
 		for (int i = 0; i < lines.Length; i++)
