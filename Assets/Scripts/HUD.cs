@@ -6,6 +6,9 @@ public class HUD : MonoBehaviour {
 	public GUIText timeText;
 	public GUIText tntText;
 
+	public GUIText timeModifier;
+	private float timeModifierTimer = 0;
+
 	private PlayerController player;
 
 	private float time;
@@ -14,12 +17,21 @@ public class HUD : MonoBehaviour {
 	void Start () {
 		player = FindObjectOfType(System.Type.GetType("PlayerController")) as PlayerController;
 		time = 0;
+		timeModifier.enabled = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		updateTime();
 		tntText.text = player.getNbTNT().ToString() + " TNT";
+
+		if (timeModifier.enabled) {
+			timeModifierTimer += Time.deltaTime;
+			if (timeModifierTimer > 2.5f) {
+				timeModifierTimer = 0;
+				timeModifier.enabled = false;
+			}
+		}
 	}
 
 	void updateTime()
@@ -47,5 +59,17 @@ public class HUD : MonoBehaviour {
 	public void addTime(float t)
 	{
 		time += t;
+
+		if (t < 0) {
+			timeModifier.enabled = true;
+			timeModifier.text = (((int)(t*10))/10f).ToString() + "s";
+			timeModifier.color = new Color(0f, 1f, 0f);
+		}
+		else if (t > 0) {
+			timeModifier.enabled = true;
+			timeModifier.text = "+" + (((int)(t*10))/10f).ToString() + "s";
+			timeModifier.color = new Color(1f, 0f, 0f);
+		}
+
 	}
 }
