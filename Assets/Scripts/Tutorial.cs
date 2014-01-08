@@ -4,10 +4,13 @@ using System.Collections;
 public class Tutorial : MonoBehaviour {
 	
 	private PlayerController player;
+	private Config config;
 
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType(System.Type.GetType("PlayerController")) as PlayerController;
+		config = FindObjectOfType(System.Type.GetType("Config")) as Config;
+		guiText.enabled = config.isTutorial;
 	}
 	
 	// Update is called once per frame
