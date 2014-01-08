@@ -9,17 +9,21 @@ public class PlayerController : MonoBehaviour {
     public float gravity = 20.0F;
 
 	public BombController bombPrefab;
+	public float bombCollectionBonus = 8f;
+	public float bombLaunchingPenalty = 24f;
 	
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 rotation = Vector3.zero;
 	
 	private CharacterController controller;
+	private HUD hud;
 
 	private int tnt = 0;
 	
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<CharacterController>();
+		hud = FindObjectOfType(System.Type.GetType("HUD")) as HUD;
 	}
 	
 	// Update is called once per frame
@@ -54,6 +58,7 @@ public class PlayerController : MonoBehaviour {
 			{
 				BombController bomb = Instantiate(bombPrefab, transform.position + transform.forward, Quaternion.identity) as BombController;
 				bomb.rigidbody.AddForce(transform.forward*18f + transform.up*15f, ForceMode.Impulse);
+				hud.addTime(bombLaunchingPenalty);
 				tnt--;
 			}
 		}
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "item")
 		{
+			hud.addTime(-bombCollectionBonus);
 			tnt++;
 			Destroy(other.gameObject);
 		}
