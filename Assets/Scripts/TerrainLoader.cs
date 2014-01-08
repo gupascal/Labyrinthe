@@ -9,8 +9,12 @@ public class TerrainLoader : MonoBehaviour {
 	public GameObject wallPrefab;
 
 	public PlayerController player;
+	public Camera topCamera;
 
 	private Config config;
+
+	private int width;
+	private int height;
 
 	// Use this for initialization
 	void Start () {
@@ -25,12 +29,15 @@ public class TerrainLoader : MonoBehaviour {
 
 	void load() {
 		string content = Resources.Load<TextAsset>(config.level).text;
-		Debug.Log (content);
+
 		string[] lines = content.Split ('\n');
+		width = lines.Length;
+		string[] elems = lines[0].Split (';');
+		height = elems.Length;
+
 		for (int i = 0; i < lines.Length; i++)
 		{
-			Debug.Log (lines[i]);
-			string[] elems = lines[i].Split (';');
+			elems = lines[i].Split (';');
 			for (int j = 0; j < elems.Length; j++)
 			{
 				elems[j] = elems[j].Trim();
@@ -58,6 +65,16 @@ public class TerrainLoader : MonoBehaviour {
 			}
 
 		}
+
+		int max = (width > height) ? width : height;
+
+		Vector3 posCam = topCamera.transform.position;
+		posCam.x = width/2f;
+		posCam.y = max;
+		posCam.z = height/2f;
+		Debug.Log (posCam.ToString());
+		topCamera.transform.position = posCam;
+
 	}
 
 }
