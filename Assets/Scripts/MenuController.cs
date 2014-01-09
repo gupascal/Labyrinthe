@@ -39,6 +39,7 @@ public class MenuController : MonoBehaviour {
 		               "Level 1"))
 		{
 			config.level = "map01";
+			config.isTutorial = false;
 			Application.LoadLevel("MainScene");
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
@@ -48,6 +49,7 @@ public class MenuController : MonoBehaviour {
 		               "Level 2"))
 		{
 			config.level = "map02";
+			config.isTutorial = false;
 			Application.LoadLevel("MainScene");
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
