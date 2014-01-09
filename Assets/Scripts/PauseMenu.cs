@@ -48,6 +48,16 @@ public class PauseMenu : MonoBehaviour {
 		                              0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                              buttonWidth,
 		                              buttonHeight),
+		                    "Recommencer"))
+		{
+			Time.timeScale = 1;
+			paused = false;
+			Application.LoadLevel("MainScene");
+		}
+		else if (GUI.Button( new Rect((Screen.width - buttonWidth)/2f,
+		                              0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                              buttonWidth,
+		                              buttonHeight),
 		                    "Retourner au menu"))
 		{
 			Application.LoadLevel("MenuScene");
