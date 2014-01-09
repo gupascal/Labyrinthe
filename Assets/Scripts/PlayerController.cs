@@ -11,10 +11,13 @@ public class PlayerController : MonoBehaviour {
 	public BombController bombPrefab;
 	public float bombCollectionBonus = 8f;
 	public float bombLaunchingPenalty = 24f;
+
+	public AudioClip bombCaught;
+	public AudioClip sceptreCaught;
 	
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 rotation = Vector3.zero;
-	
+
 	private CharacterController controller;
 	private HUD hud;
 
@@ -80,6 +83,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "item")
 		{
 			hud.addTime(-bombCollectionBonus);
+			gameObject.audio.PlayOneShot(sceptreCaught);
 			tnt++;
 			Destroy(other.gameObject);
 		}
@@ -117,6 +121,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if (other.gameObject.tag == "sceptre")
 		{
+			gameObject.audio.PlayOneShot(sceptreCaught);
 			Destroy(other.gameObject);
 		}
 	}
