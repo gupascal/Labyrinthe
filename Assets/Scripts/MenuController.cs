@@ -38,14 +38,14 @@ public class MenuController : MonoBehaviour {
 	void drawMainMenu()
 	{
 		GUIStyle style = new GUIStyle();
-		style.fontSize = 50;
+		style.fontSize = 48;
 		style.alignment = TextAnchor.UpperCenter;
 		
 		GUI.Label(new Rect((Screen.width - 500f)/2f,
-		                   (Screen.height * 0.33f - 40f)/2f,
+		                   (Screen.height * 0.4f - 40f)/2f,
 		                   500f,
 		                   40f),
-		          "Megabirynthe", style);
+		          "MEGABIRYNTHE", style);
 
 
 		float buttonWidth = 128f;
@@ -54,7 +54,7 @@ public class MenuController : MonoBehaviour {
 		int idButton = 0;
 
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
-		                         0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                         0.4f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                         buttonWidth,
 		                         buttonHeight),
 		               "Tutorial"))
@@ -64,7 +64,7 @@ public class MenuController : MonoBehaviour {
 			Application.LoadLevel("MainScene");
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
-		                         0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                         0.4f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                         buttonWidth,
 		                         buttonHeight),
 		               "Level 1"))
@@ -74,7 +74,7 @@ public class MenuController : MonoBehaviour {
 			Application.LoadLevel("MainScene");
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
-		                         0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                         0.4f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                         buttonWidth,
 		                         buttonHeight),
 		               "Level 2"))
@@ -84,7 +84,7 @@ public class MenuController : MonoBehaviour {
 			Application.LoadLevel("MainScene");
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
-		                         0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                         0.4f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                         buttonWidth,
 		                         buttonHeight),
 		               "Credits"))
@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour {
 			menu = Menu.CreditsMenu;
 		}
 		if (GUI.Button(	new Rect((Screen.width - buttonWidth)/2f,
-		                         0.3f*Screen.height + buttonHeight * 1.33f * idButton++,
+		                         0.4f*Screen.height + buttonHeight * 1.33f * idButton++,
 		                         buttonWidth,
 		                         buttonHeight),
 		               "Quit"))

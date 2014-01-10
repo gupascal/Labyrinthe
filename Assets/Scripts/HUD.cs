@@ -55,7 +55,7 @@ public class HUD : MonoBehaviour {
 			int idButton = 0;
 
 			if (GUI.Button( new Rect((Screen.width - buttonWidth)/2f,
-			                              0.42f*Screen.height + buttonHeight * 1.33f * idButton++,
+			                              0.45f*Screen.height + buttonHeight * 1.33f * idButton++,
 			                              buttonWidth,
 			                              buttonHeight),
 			                    "Recommencer"))
@@ -64,7 +64,7 @@ public class HUD : MonoBehaviour {
 				Application.LoadLevel("MainScene");
 			}
 			if (GUI.Button( new Rect((Screen.width - buttonWidth)/2f,
-			                              0.42f*Screen.height + buttonHeight * 1.33f * idButton++,
+			                              0.45f*Screen.height + buttonHeight * 1.33f * idButton++,
 			                              buttonWidth,
 			                              buttonHeight),
 			                    "Retourner au menu"))

@@ -9,7 +9,6 @@ public class TerrainLoader : MonoBehaviour {
 	public GameObject wallPrefab;
 
 	public PlayerController player;
-	public Camera topCamera;
 
 	private Config config;
 
@@ -59,19 +58,20 @@ public class TerrainLoader : MonoBehaviour {
 				}
 				else if (elems[j] == "P")
 				{
-					player.transform.position = new Vector3(i + 0.5f, player.transform.position.y, j + 0.5f);
+					if (player != null)
+						player.transform.position = new Vector3(i + 0.5f, player.transform.position.y, j + 0.5f);
 				}
 			}
 
 		}
+	}
 
-		// Set the right position for the top camera
-		int max = (width > height) ? width : height;
-		Vector3 posCam = topCamera.transform.position;
-		posCam.x = width/2f;
-		posCam.y = max;
-		posCam.z = height/2f;
-		topCamera.transform.position = posCam;
+	public float getMiddleWidth() {
+		return width/2f;
+	}
+
+	public float getMiddleHeight() {
+		return height/2f;
 	}
 
 }

@@ -186,6 +186,7 @@ GameObject:
   - 92: {fileID: 458503025}
   - 124: {fileID: 458503024}
   - 81: {fileID: 458503023}
+  - 114: {fileID: 458503028}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -249,11 +250,22 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 458503022}
-  m_LocalRotation: {x: .125939265, y: 0, z: 0, w: .992037952}
-  m_LocalPosition: {x: 50, y: 1, z: 30}
+  m_LocalRotation: {x: .300123155, y: 0, z: 0, w: .953900456}
+  m_LocalPosition: {x: 12.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &458503028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458503022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fb7561f9b100f45bdea6e9abe210d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &750957186
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b511ff7772d1b42ae5f3da5d4c0bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 
+  level: map01
   isTutorial: 0
 --- !u!4 &750957188
 Transform:
@@ -304,6 +316,7 @@ GameObject:
   - 4: {fileID: 1655739633}
   - 114: {fileID: 1655739632}
   - 154: {fileID: 1655739631}
+  - 114: {fileID: 1655739634}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -354,7 +367,23 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1655739630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -50, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1655739634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1655739630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ed53b7ad9bb2c4f9205307efc03a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxPrefab: {fileID: 100002, guid: 409150b0a8a0d474981833f8a10fde59, type: 2}
+  itemPrefab: {fileID: 100004, guid: 10a3d30675c9a7e4aa0cdecd17fdc007, type: 2}
+  sceptrePrefab: {fileID: 100000, guid: 7b834002af119064fadff7b4557b5c1b, type: 2}
+  wallPrefab: {fileID: 100000, guid: e82865ea682fbe34c98941f9fbdcb30b, type: 2}
+  player: {fileID: 0}

@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			if (tnt > 0)
 			{
-				BombController bomb = Instantiate(bombPrefab, transform.position + transform.forward, Quaternion.identity) as BombController;
+				BombController bomb = Instantiate(bombPrefab, transform.position + transform.forward/2f, Quaternion.identity) as BombController;
 				bomb.rigidbody.AddForce(transform.forward*18f + transform.up*15f, ForceMode.Impulse);
 				hud.addTime(bombLaunchingPenalty);
 				anim.SetBool(hash.bomb, true);
