@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour {
 
 	void drawCredits()
 	{
-		float buttonWidth = 140f;
+		float buttonWidth = 256f;
 		float buttonHeight = 20f;
 		
 		int idButton = 0;
@@ -104,6 +104,7 @@ public class MenuController : MonoBehaviour {
 
 		GUIStyle style = new GUIStyle();
 		style.fontSize = 20;
+		style.alignment = TextAnchor.UpperCenter;
 
 		GUI.Label(new Rect(0,
 		                   buttonHeight * 1.33f * idButton++,
@@ -115,12 +116,12 @@ public class MenuController : MonoBehaviour {
 		                   buttonHeight * 1.33f * idButton++,
 		                   buttonWidth,
 		                   buttonHeight*6),
-		          "Musiques et sons de :\nOpenGameArt.org\nxxxx\nyyyy\nzzzz\nkkkk\n", style);
+		          "Musiques et sons de :\nOpenGameArt.org\nJohan Brodd (jobromedia)\nMichel Baradari\nBrandon Morris\nDavid McKee (ViRiX)\n", style);
 		idButton += 5;
 
-		if (GUI.Button(	new Rect(0,
+		if (GUI.Button(	new Rect((buttonWidth - 128)/2f,
 		                         buttonHeight * 1.33f * idButton++,
-		                         buttonWidth,
+		                         128,
 		                         32),
 		               "Retour"))
 		{
