@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		anim.SetBool(hash.bomb, false);
+
 		moveDirection = Vector3.zero;
 		if (controller.isGrounded) {
 			// Moves forward, left, right, backward
@@ -75,6 +77,7 @@ public class PlayerController : MonoBehaviour {
 				BombController bomb = Instantiate(bombPrefab, transform.position + transform.forward, Quaternion.identity) as BombController;
 				bomb.rigidbody.AddForce(transform.forward*18f + transform.up*15f, ForceMode.Impulse);
 				hud.addTime(bombLaunchingPenalty);
+				anim.SetBool(hash.bomb, true);
 				tnt--;
 			}
 		}

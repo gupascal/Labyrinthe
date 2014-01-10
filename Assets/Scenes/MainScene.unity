@@ -812,6 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWalking: 0
+  bomb: 0
 --- !u!1 &671988470
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +889,7 @@ Animator:
   m_GameObject: {fileID: 726354939}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fcc751056b6e4e541b4503bdac9b73ec, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a43cc8b7a0fa24d8cdcf0f585d0c52, type: 2}
   m_CullingMode: 1
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
@@ -1144,6 +1145,10 @@ Prefab:
     - target: {fileID: 2300000, guid: ccb7198fea0826146a12d8fc1da3a2c7, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: ccb7198fea0826146a12d8fc1da3a2c7, type: 2}
+      propertyPath: near clip plane
+      value: .300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ccb7198fea0826146a12d8fc1da3a2c7, type: 2}
@@ -1483,6 +1488,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: fcc751056b6e4e541b4503bdac9b73ec, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d9a43cc8b7a0fa24d8cdcf0f585d0c52, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fcc751056b6e4e541b4503bdac9b73ec, type: 3}
   m_RootGameObject: {fileID: 726354939}
