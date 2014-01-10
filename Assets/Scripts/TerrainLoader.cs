@@ -41,7 +41,6 @@ public class TerrainLoader : MonoBehaviour {
 			for (int j = 0; j < elems.Length; j++)
 			{
 				elems[j] = elems[j].Trim();
-				Debug.Log (elems[j]);
 				if (elems[j] == "B")
 				{
 					Instantiate(boxPrefab, new Vector3(i + 0.5f, 0.5f, j + 0.5f), Quaternion.identity);
@@ -52,11 +51,11 @@ public class TerrainLoader : MonoBehaviour {
 				}
 				else if (elems[j] == "I")
 				{
-					GameObject item = Instantiate(itemPrefab, new Vector3(i + 0.5f, 0.25f, j + 0.5f), Quaternion.identity) as GameObject;
+					Instantiate(itemPrefab, new Vector3(i + 0.5f, 0.25f, j + 0.5f), Quaternion.identity);
 				}
 				else if (elems[j] == "S")
 				{
-					GameObject sceptre = Instantiate(sceptrePrefab, new Vector3(i + 0.5f, 0.5f, j + 0.5f), Quaternion.identity) as GameObject;
+					Instantiate(sceptrePrefab, new Vector3(i + 0.5f, 0.5f, j + 0.5f), Quaternion.identity);
 				}
 				else if (elems[j] == "P")
 				{
@@ -66,15 +65,13 @@ public class TerrainLoader : MonoBehaviour {
 
 		}
 
+		// Set the right position for the top camera
 		int max = (width > height) ? width : height;
-
 		Vector3 posCam = topCamera.transform.position;
 		posCam.x = width/2f;
 		posCam.y = max;
 		posCam.z = height/2f;
-		Debug.Log (posCam.ToString());
 		topCamera.transform.position = posCam;
-
 	}
 
 }

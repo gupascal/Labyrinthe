@@ -41,7 +41,7 @@ public class Tutorial : MonoBehaviour {
 		else if (z < 20.5f) {
 			guiText.text = "Le but ultime est de récupérer le sceptre à l'autre extrémité du labyrinthe.\n"
 						 + "Pour vous aider, vous pouvez maintenir la touche F1 pour avoir une vue aérienne du niveau.\n"
-						 + "Un appui sur F2 permet de passer d'une vue 1ère paersonne à une vue 3ème personne et vice-versa.";
+						 + "Un appui sur F2 permet de passer d'une vue 1ère personne à une vue 3ème personne et vice-versa.";
 		}
 	}
 }

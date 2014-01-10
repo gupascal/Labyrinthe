@@ -11,12 +11,18 @@ public class PlayerController : MonoBehaviour {
 	public BombController bombPrefab;
 	public float bombCollectionBonus = 8f;
 	public float bombLaunchingPenalty = 24f;
+
+	public AudioClip bombCaught;
+	public AudioClip sceptreCaught;
 	
 	private Vector3 moveDirection = Vector3.zero;
 	private Vector3 rotation = Vector3.zero;
-	
+
 	private CharacterController controller;
 	private HUD hud;
+
+	private Animator anim;
+	private PlayerHashIDs hash;
 
 	private int tnt = 0;
 	
@@ -24,6 +30,11 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		hud = FindObjectOfType(System.Type.GetType("HUD")) as HUD;
+
+		// Animations
+		hash = GetComponent<PlayerHashIDs>();
+		anim = GetComponentInChildren<Animator>();
+		anim.SetLayerWeight(0,1f);
 	}
 	
 	// Update is called once per frame
@@ -42,6 +53,11 @@ public class PlayerController : MonoBehaviour {
 			speed = Mathf.Lerp(speed, 0, Time.deltaTime * 4);
 		}
 		moveDirection *= speed;
+
+		if (moveDirection == Vector3.zero)
+			anim.SetBool(hash.isWalking, false);
+		else
+			anim.SetBool(hash.isWalking, true);
 
 		// Applies move
 	    moveDirection.y -= gravity * Time.deltaTime;
@@ -80,13 +96,14 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "item")
 		{
 			hud.addTime(-bombCollectionBonus);
+			gameObject.audio.PlayOneShot(sceptreCaught);
 			tnt++;
 			Destroy(other.gameObject);
 		}
 		else if (other.gameObject.tag == "box")
 		{
 			Vector3 move = (other.gameObject.transform.position - transform.position).normalized;
-			// Controle move to determine if the player really want to move the box.
+			// Controle "move" to determine if the player really want to move the box.
 			if (moveDirection != Vector3.zero && Vector3.Angle (moveDirection, move) < 40 && Vector3.Angle (transform.forward, move) < 40)
 			{
 				float dotForward = Vector3.Dot (Vector3.forward, move);
@@ -117,6 +134,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if (other.gameObject.tag == "sceptre")
 		{
+			gameObject.audio.PlayOneShot(sceptreCaught);
+			hud.gameIsWon();
 			Destroy(other.gameObject);
 		}
 	}
