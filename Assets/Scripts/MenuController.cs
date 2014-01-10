@@ -115,24 +115,24 @@ public class MenuController : MonoBehaviour {
 
 
 		float buttonWidth = 256f;
-		float buttonHeight = 20f;
+		float buttonHeight = 19f;
 		
 		int idButton = 0;
 
 		GUILayout.BeginArea(new Rect((Screen.width - buttonWidth*1.3f)/2f,
 				                    0.22f*Screen.height + buttonHeight * 1.33f * idButton++,
 				                    buttonWidth*1.3f,
-				                    buttonHeight*15));
+				                    buttonHeight*20));
 
 		style = new GUIStyle();
-		style.fontSize = 20;
+		style.fontSize = 19;
 		style.alignment = TextAnchor.UpperCenter;
 
 		GUI.Label(new Rect(40,
 		                   buttonHeight * 1.33f * idButton++,
 		                   buttonWidth,
 		                   buttonHeight*3),
-		          "Réalisé par :\nGrandClément Thibaut\nPascal Guillaume\n", style);
+		          "Realise par :\nGrandClement Thibaut\nPascal Guillaume\n", style);
 		idButton += 2;
 		GUI.Label(new Rect(40,
 		                   buttonHeight * 1.33f * idButton++,
@@ -140,6 +140,12 @@ public class MenuController : MonoBehaviour {
 		                   buttonHeight*6),
 		          "Musiques et sons de :\nOpenGameArt.org\nJohan Brodd (jobromedia)\nMichel Baradari\nBrandon Morris\nDavid McKee (ViRiX)\n", style);
 		idButton += 5;
+		GUI.Label(new Rect(40,
+		                   buttonHeight * 1.33f * idButton++,
+		                   buttonWidth,
+		                   buttonHeight*6),
+		          "Un modele de :\nEnthymeme (BlenderSwap.com)\n", style);
+		idButton += 2;
 
 		if (GUI.Button(	new Rect((buttonWidth - 128)/2f +40,
 		                         buttonHeight * 1.33f * idButton++,

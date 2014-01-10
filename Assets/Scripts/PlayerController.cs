@@ -135,6 +135,7 @@ public class PlayerController : MonoBehaviour {
 		else if (other.gameObject.tag == "sceptre")
 		{
 			gameObject.audio.PlayOneShot(sceptreCaught);
+			hud.gameIsWon();
 			Destroy(other.gameObject);
 		}
 	}

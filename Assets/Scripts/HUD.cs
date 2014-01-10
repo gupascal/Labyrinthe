@@ -9,9 +9,13 @@ public class HUD : MonoBehaviour {
 	public GUIText timeModifier;
 	private float timeModifierTimer = 0;
 
+	public GUIText gameWonText;
+
 	private PlayerController player;
 
 	private float time;
+
+	private bool gameWon = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,11 +29,47 @@ public class HUD : MonoBehaviour {
 		updateTime();
 		tntText.text = player.getNbTNT().ToString() + " TNT";
 
-		if (timeModifier.enabled) {
+		if (timeModifier.enabled)
+		{
 			timeModifierTimer += Time.deltaTime;
 			if (timeModifierTimer > 2.5f) {
 				timeModifierTimer = 0;
 				timeModifier.enabled = false;
+			}
+		}
+
+		if (gameWon)
+		{
+			gameWonText.enabled = true;
+			gameWonText.text = "Gagné !";
+		}
+	}
+
+	void OnGUI()
+	{
+		if (gameWon)
+		{
+			float buttonWidth = 128f;
+			float buttonHeight = 32f;
+			
+			int idButton = 0;
+
+			if (GUI.Button( new Rect((Screen.width - buttonWidth)/2f,
+			                              0.42f*Screen.height + buttonHeight * 1.33f * idButton++,
+			                              buttonWidth,
+			                              buttonHeight),
+			                    "Recommencer"))
+			{
+				Time.timeScale = 1;
+				Application.LoadLevel("MainScene");
+			}
+			if (GUI.Button( new Rect((Screen.width - buttonWidth)/2f,
+			                              0.42f*Screen.height + buttonHeight * 1.33f * idButton++,
+			                              buttonWidth,
+			                              buttonHeight),
+			                    "Retourner au menu"))
+			{
+				Application.LoadLevel("MenuScene");
 			}
 		}
 	}
@@ -71,5 +111,11 @@ public class HUD : MonoBehaviour {
 			timeModifier.color = new Color(1f, 0f, 0f);
 		}
 
+	}
+
+	public void gameIsWon()
+	{
+		gameWon = true;
+		Time.timeScale = 0;
 	}
 }
