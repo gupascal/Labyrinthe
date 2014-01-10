@@ -21,12 +21,20 @@ public class PlayerController : MonoBehaviour {
 	private CharacterController controller;
 	private HUD hud;
 
+	private Animator anim;
+	private PlayerHashIDs hash;
+
 	private int tnt = 0;
 	
 	// Use this for initialization
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		hud = FindObjectOfType(System.Type.GetType("HUD")) as HUD;
+
+		// Animations
+		hash = GetComponent<PlayerHashIDs>();
+		anim = GetComponentInChildren<Animator>();
+		anim.SetLayerWeight(0,1f);
 	}
 	
 	// Update is called once per frame
@@ -45,6 +53,11 @@ public class PlayerController : MonoBehaviour {
 			speed = Mathf.Lerp(speed, 0, Time.deltaTime * 4);
 		}
 		moveDirection *= speed;
+
+		if (moveDirection == Vector3.zero)
+			anim.SetBool(hash.isWalking, false);
+		else
+			anim.SetBool(hash.isWalking, true);
 
 		// Applies move
 	    moveDirection.y -= gravity * Time.deltaTime;

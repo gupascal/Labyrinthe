@@ -121,6 +121,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 392079a155ec9494cba903b9d58617c1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d9a43cc8b7a0fa24d8cdcf0f585d0c52, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 392079a155ec9494cba903b9d58617c1, type: 3}
   m_RootGameObject: {fileID: 771742427}
@@ -418,6 +422,7 @@ GameObject:
   - 23: {fileID: 614242961}
   - 114: {fileID: 614242965}
   - 82: {fileID: 614242966}
+  - 114: {fileID: 614242967}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -563,6 +568,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &614242967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614242960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38c215fcbe30bb4db763ba9e6881cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
 --- !u!1 &771742427
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,7 +608,7 @@ Animator:
   m_GameObject: {fileID: 771742427}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 392079a155ec9494cba903b9d58617c1, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a43cc8b7a0fa24d8cdcf0f585d0c52, type: 2}
   m_CullingMode: 0
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
