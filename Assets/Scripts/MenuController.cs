@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MenuController : MonoBehaviour {
@@ -37,6 +37,17 @@ public class MenuController : MonoBehaviour {
 
 	void drawMainMenu()
 	{
+		GUIStyle style = new GUIStyle();
+		style.fontSize = 50;
+		style.alignment = TextAnchor.UpperCenter;
+		
+		GUI.Label(new Rect((Screen.width - 500f)/2f,
+		                   (Screen.height * 0.33f - 40f)/2f,
+		                   500f,
+		                   40f),
+		          "Megabirynthe", style);
+
+
 		float buttonWidth = 128f;
 		float buttonHeight = 32f;
 		
@@ -92,6 +103,17 @@ public class MenuController : MonoBehaviour {
 
 	void drawCredits()
 	{
+		GUIStyle style = new GUIStyle();
+		style.fontSize = 40;
+		style.alignment = TextAnchor.UpperCenter;
+
+		GUI.Label(new Rect((Screen.width - 500f)/2f,
+		                   (Screen.height * 0.33f - 40f)/2f,
+		                   500f,
+		                   40f),
+		          "Credits ", style);
+
+
 		float buttonWidth = 256f;
 		float buttonHeight = 20f;
 		
@@ -102,24 +124,24 @@ public class MenuController : MonoBehaviour {
 				                    buttonWidth*1.3f,
 				                    buttonHeight*15));
 
-		GUIStyle style = new GUIStyle();
+		style = new GUIStyle();
 		style.fontSize = 20;
 		style.alignment = TextAnchor.UpperCenter;
 
-		GUI.Label(new Rect(0,
+		GUI.Label(new Rect(40,
 		                   buttonHeight * 1.33f * idButton++,
 		                   buttonWidth,
 		                   buttonHeight*3),
 		          "Réalisé par :\nGrandClément Thibaut\nPascal Guillaume\n", style);
 		idButton += 2;
-		GUI.Label(new Rect(0,
+		GUI.Label(new Rect(40,
 		                   buttonHeight * 1.33f * idButton++,
 		                   buttonWidth,
 		                   buttonHeight*6),
 		          "Musiques et sons de :\nOpenGameArt.org\nJohan Brodd (jobromedia)\nMichel Baradari\nBrandon Morris\nDavid McKee (ViRiX)\n", style);
 		idButton += 5;
 
-		if (GUI.Button(	new Rect((buttonWidth - 128)/2f,
+		if (GUI.Button(	new Rect((buttonWidth - 128)/2f +40,
 		                         buttonHeight * 1.33f * idButton++,
 		                         128,
 		                         32),
