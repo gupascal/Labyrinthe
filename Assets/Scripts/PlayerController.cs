@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour {
 		else if (other.gameObject.tag == "box")
 		{
 			Vector3 move = (other.gameObject.transform.position - transform.position).normalized;
-			// Controle move to determine if the player really want to move the box.
+			// Controle "move" to determine if the player really want to move the box.
 			if (moveDirection != Vector3.zero && Vector3.Angle (moveDirection, move) < 40 && Vector3.Angle (transform.forward, move) < 40)
 			{
 				float dotForward = Vector3.Dot (Vector3.forward, move);
